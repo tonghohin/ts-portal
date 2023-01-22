@@ -14,7 +14,7 @@ router.route("/login").post((req, res) => {
         console.log(err);
         if (result) {
           jwt.sign({ unit: user[0].unit, isAdmin: false }, process.env.SECRET, { expiresIn: 86400 }, (err, token) => {
-            res.json(token);
+            res.json({ token: token });
           });
         } else {
           res.json({ isInvalidUnitOrPassword: true });

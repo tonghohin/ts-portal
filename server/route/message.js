@@ -10,7 +10,7 @@ router
         console.log(err);
       }
       res.send(result);
-    });
+    }).sort({ createdAt: -1 });
   })
   .post((req, res) => {
     console.log(req.body);
@@ -31,7 +31,7 @@ router
         console.log(err);
       }
       res.send(result);
-    });
+    }).sort({ createdAt: -1 });
   })
   .put((req, res) => {
     Message.updateOne(req.params, req.body, (err, result) => {

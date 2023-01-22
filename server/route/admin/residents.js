@@ -14,6 +14,7 @@ router
     });
   })
   .post((req, res) => {
+    Object.keys(req.body).forEach((key) => (req.body[key] = req.body[key].trim()));
     bcrypt.hash(req.body.password, 10, (err, hash) => {
       req.body.password = hash;
       Resident.create(req.body, (err, result) => {
