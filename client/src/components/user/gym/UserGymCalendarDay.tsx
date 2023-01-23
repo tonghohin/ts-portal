@@ -1,5 +1,7 @@
-import { ContextmenuInfo, Timeslot } from "../../../pages/user/UserGym";
+import { ContextmenuInfo } from "../../../pages/user/UserGym";
 import { useRef } from "react";
+import { useAppDispatch } from "../../../app/hooks";
+import { rightClicked } from "../../../features/userGymSlice";
 
 interface Props {
   readonly dayId: string;
@@ -8,17 +10,17 @@ interface Props {
   readonly slotTwo: string;
   readonly slotThree: string;
   readonly setContextmenuInfo: React.Dispatch<React.SetStateAction<ContextmenuInfo>>;
-  readonly setClickedTimslot: React.Dispatch<React.SetStateAction<Timeslot>>;
 }
 
 function UserGymCalendarDay(props: Props) {
   const H1 = useRef<HTMLHeadingElement>(null);
+  const dispatch = useAppDispatch();
 
   function handleContextmenu(e: React.MouseEvent<HTMLParagraphElement>) {
     e.preventDefault();
     (e.target as HTMLParagraphElement).textContent === "Available" ? props.setContextmenuInfo({ isShown: true, textIsAvailable: true }) : props.setContextmenuInfo({ isShown: true, textIsAvailable: false });
-    if (H1.current && H1.current.textContent) {
-      props.setClickedTimslot({ coor: { x: e.clientX, y: e.clientY }, id: H1.current.id, text: H1.current.textContent, slot: (e.target as HTMLParagraphElement).dataset.slot });
+    if (H1.current && H1.current.textContent && e.currentTarget.dataset.slot) {
+      dispatch(rightClicked({ coor: { x: e.clientX, y: e.clientY }, id: H1.current.id, text: H1.current.textContent, slot: e.currentTarget.dataset.slot }));
     }
   }
 

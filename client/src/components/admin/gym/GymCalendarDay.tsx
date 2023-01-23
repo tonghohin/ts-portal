@@ -1,5 +1,7 @@
-import { ContextmenuInfo, Timeslot } from "../../../pages/admin/Gym";
+import { ContextmenuInfo } from "../../../pages/admin/Gym";
 import { useRef } from "react";
+import { useAppDispatch } from "../../../app/hooks";
+import { rightClicked } from "../../../features/gymSlice";
 
 interface Props {
   readonly dayId: string;
@@ -8,18 +10,17 @@ interface Props {
   readonly slotTwo: string;
   readonly slotThree: string;
   readonly setContextmenuInfo: React.Dispatch<React.SetStateAction<ContextmenuInfo>>;
-  readonly setClickedTimslot: React.Dispatch<React.SetStateAction<Timeslot>>;
 }
 
 function GymCalendarDay(props: Props) {
   const P = useRef<HTMLParagraphElement>(null);
+  const dispatch = useAppDispatch();
 
   function handleContextmenu(e: React.MouseEvent<HTMLHeadingElement>) {
     e.preventDefault();
-
     if (P.current && e.currentTarget.textContent) {
       P.current.textContent === "Closed" ? props.setContextmenuInfo({ isShown: true, textIsClosed: false }) : props.setContextmenuInfo({ isShown: true, textIsClosed: true });
-      props.setClickedTimslot({ coor: { x: e.clientX, y: e.clientY }, id: e.currentTarget.id, text: e.currentTarget.textContent });
+      dispatch(rightClicked({ coor: { x: e.clientX, y: e.clientY }, id: e.currentTarget.id, text: e.currentTarget.textContent }));
     }
   }
 
