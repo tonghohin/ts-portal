@@ -45,3 +45,5 @@ app.use("/", UserGym);
 
 const UserResident = require("./route/user/residents");
 app.use("/", UserResident);
+
+export {};
