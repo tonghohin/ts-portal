@@ -32,10 +32,10 @@ function UserGymCalendarDay(props: Props) {
       <p className={switchClass(props.slotOne)} onContextMenu={props.slotOne === "Closed" || props.slotOne === "Unavailable" ? undefined : handleContextmenu} data-slot="slotOne">
         {props.slotOne}
       </p>
-      <p id="slotTwo" className={switchClass(props.slotTwo, true)} onContextMenu={props.slotOne === "Closed" || props.slotOne === "Unavailable" ? undefined : handleContextmenu} data-slot="slotTwo">
+      <p id="slotTwo" className={switchClass(props.slotTwo, true)} onContextMenu={props.slotOne === "Closed" || props.slotTwo === "Unavailable" ? undefined : handleContextmenu} data-slot="slotTwo">
         {props.slotTwo}
       </p>
-      <p id="slotThree" className={switchClass(props.slotThree)} onContextMenu={props.slotOne === "Closed" || props.slotOne === "Unavailable" ? undefined : handleContextmenu} data-slot="slotThree">
+      <p id="slotThree" className={switchClass(props.slotThree)} onContextMenu={props.slotOne === "Closed" || props.slotThree === "Unavailable" ? undefined : handleContextmenu} data-slot="slotThree">
         {props.slotThree}
       </p>
     </div>
