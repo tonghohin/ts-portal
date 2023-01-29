@@ -18,7 +18,6 @@ See the JavaScript version here: https://github.com/tonghohin/portal
 
 - TypeScript
 - HTML
-- CSS
 - Tailwind CSS
 - React
 - React Router
