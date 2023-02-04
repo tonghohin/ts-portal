@@ -3,6 +3,7 @@
 This is a portal designed for making communications between tenants and superintendents easier.
 
 See the JavaScript version here: https://github.com/tonghohin/portal
+
 See the Firebase version here: https://github.com/tonghohin/firebase-portal
 
 ## Features
