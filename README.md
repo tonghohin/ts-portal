@@ -23,10 +23,8 @@ See the JavaScript with Firebase version here: https://github.com/tonghohin/fire
 - TypeScript
 - Tailwind CSS
 - React
-- React Router
-- Redux Toolkit
+- Redux
 - Express
-- REST API
 - MongoDB
 - Mongoose
 - JSON Web Tokens
