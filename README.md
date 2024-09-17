@@ -2,8 +2,6 @@
 
 This is a portal designed for making communications between tenants and superintendents easier.
 
-See it in action at https://portal.cyclic.app
-
 See the JavaScript with MongoDB version here: https://github.com/tonghohin/portal
 
 See the JavaScript with Firebase version here: https://github.com/tonghohin/firebase-portal
